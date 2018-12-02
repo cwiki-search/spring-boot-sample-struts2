@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ossez</groupId>
+	<artifactId>spring-boot-sample-struts2</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>Spring Boot Struts 2</name>
+
+	<!-- Inherit defaults from Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.17.RELEASE</version>
+	</parent>
+
+	<properties>
+
+		<!-- Generic properties -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- XML Processing -->
+		<jdom.version>2.0.6</jdom.version>
+		<version.oltu>1.0.2</version.oltu>
+
+
+		<!-- Spring -->
+		<spring-framework.version>4.1.6.RELEASE</spring-framework.version>
+		<spring-data-jpa.version>1.5.1.RELEASE</spring-data-jpa.version>
+
+
+		<!-- Java EE / Java SE dependencies -->
+		<jstl.version>1.2</jstl.version>
+		<tomcat.servlet.version>7.0.30</tomcat.servlet.version>
+		<jaxb-impl.version>2.2.7</jaxb-impl.version>
+
+		<!-- WEB DEPENDENCIES + BEGING + -->
+		<javax.servlet>3.1.0</javax.servlet>
+		<jsp.version>2.2.1-b03</jsp.version>
+
+		<webjars-bootstrap.version>2.3.0</webjars-bootstrap.version>
+		<webjars-jquery-ui.version>1.10.3</webjars-jquery-ui.version>
+		<webjars-jquery.version>2.0.3-1</webjars-jquery.version>
+		<dandelion.datatables.version>0.9.3</dandelion.datatables.version>
+		<!-- WEB DEPENDENCIES + END + -->
+
+		<!-- Hibernate / JPA -->
+		<hibernate.version>4.3.7.Final</hibernate.version>
+
+		<!-- Bean validation -->
+		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
+
+		<!-- shiro -->
+		<shiro.version>1.2.3</shiro.version>
+
+		<!-- Database access -->
+		<tomcat-jdbc.version>7.0.42</tomcat-jdbc.version>
+		<ehcache.version>2.6.8</ehcache.version>
+		<hsqldb.version>2.3.2</hsqldb.version>
+
+		<!-- Test -->
+		<junit.version>4.11</junit.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.5.16</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+	</dependencies>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<url>https://www.cwiki.us/pages/viewpage.action?pageId=41681231</url>
+	<scm>
+		<url>https://github.com/cwiki-us-spring-guides/spring-boot-sample-struts2</url>
+		<developerConnection>YuCheng Hu</developerConnection>
+	</scm>
+</project>
